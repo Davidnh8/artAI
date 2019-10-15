@@ -26,15 +26,15 @@ print(device_lib.list_local_devices())
 import time
 
 #from vgg19 import VGG_19 as customvgg19
-from keras.layers import AveragePooling2D, Input
+from keras.layers import AveragePooling2D, Conv2D, Input
 from keras.models import Model
 
 def contentLoss(F: "feature representation of generated image", P: "feature representation of the original content") -> "Content Loss":
     ret = 0.5*K.sum(K.square(F-P))
     return ret
 
-"""
-def contentGrad(F: "feature representation of generated image", P: "feature representation of the original content") -> "content Loss Gradient":
+    """
+    def contentGrad(F: "feature representation of generated image", P: "feature representation of the original content") -> "content Loss Gradient":
     grad=np.empty_like(F)
     diff=F-P
     F_positive_msk=(F>0)
@@ -56,8 +56,8 @@ def styleLossSingleLayer(F: "feature representation of generated image", A_: "gr
     G=gramMatrix(F)
     A=gramMatrix(A_)
     return 0.25 * K.sum(K.square(G-A))/( N**2 * M**2)
-"""
-def styleLossSingleLayerGrad(F: "feature representation of generated image", A_: "Feature representation of the original style")->"Grad of single layer style loss":
+    """
+    def styleLossSingleLayerGrad(F: "feature representation of generated image", A_: "Feature representation of the original style")->"Grad of single layer style loss":
     G=gramMatrix(F)
     A=gramMatrix(A_)
     dEdF=np.empty_like(F)
@@ -68,6 +68,44 @@ def styleLossSingleLayerGrad(F: "feature representation of generated image", A_:
     dEdF[np.invert(F_positive_msk)]=0
     
     return dEdF"""
+def customvgg19_notop(input_tensor):
+
+    #print(K.is_keras_tensor(input_tensor))
+    #assert K.is_keras_tensor(input_tensor)
+    
+    x=Input(tensor=input_tensor)
+    # Block 1
+    x = Conv2D(64, (3, 3), activation='relu', padding='same', name='block1_conv1')(x)
+    x = Conv2D(64, (3, 3), activation='relu', padding='same', name='block1_conv2')(x)
+    x = AveragePooling2D((2, 2), strides=(2, 2), name="block1_pool" )(x)
+    # Block 2
+    x = Conv2D(128, (3, 3), activation='relu', padding='same', name='block2_conv1')(x)
+    x = Conv2D(128, (3, 3), activation='relu', padding='same', name='block2_conv2')(x)
+    x = AveragePooling2D((2, 2), strides=(2, 2), name="block2_pool" )(x)
+    # Block 3
+    x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv1')(x)
+    x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv2')(x)
+    x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv3')(x)
+    x = Conv2D(256, (3, 3), activation='relu', padding='same', name='block3_conv4')(x)
+    x = AveragePooling2D((2, 2), strides=(2, 2), name="block3_pool" )(x)
+    # Block 4
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv1')(x)
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv2')(x)
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv3')(x)
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block4_conv4')(x)
+    x = AveragePooling2D((2, 2), strides=(2, 2), name="block4_pool" )(x)
+    # Block 5
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block5_conv1')(x)
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block5_conv2')(x)
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block5_conv3')(x)
+    x = Conv2D(512, (3, 3), activation='relu', padding='same', name='block5_conv4')(x)
+    x = AveragePooling2D((2, 2), strides=(2, 2), name="block5_pool" )(x)
+    
+    model = Model(input=input_tensor, output=x)
+    model.load_weights("vgg19_weights_notop.h5")
+    
+    return model
+    
 
 
 class Artist():
@@ -75,14 +113,16 @@ class Artist():
                  content_img_path,
                  style_img_path,
                  content_coeff=1.0,
-                 style_coeff=10000.0,
+                 style_coeff=8000.0,
                  content_layer_names=['block4_conv2'],
                  style_layer_names=["block1_conv1",
                                     "block2_conv1",
                                     "block3_conv1",
                                     "block4_conv1",
                                     "block5_conv1"],
-                learning_rate=0.0000001
+                learning_rate=0.0000001,
+                iteration_count=30,
+                save_path=""
                  ):
         
         self.content_img_path=content_img_path
@@ -92,9 +132,10 @@ class Artist():
         self.content_layer_names = content_layer_names
         self.style_layer_names = style_layer_names
         self.learning_rate = learning_rate
+        self.iteration_count = iteration_count
+        self.save_path = save_path
         
         self.style_weights=[1/len(self.style_layer_names) for i in range(len(self.style_layer_names))]
-        #self.style_weights=[1. for i in range(len(self.style_layer_names))]
         self.content_img= self.pre_process(np.expand_dims(Image.open(self.content_img_path), axis=0).astype('float32'))
         discard,self.H, self.W, self.C=self.content_img.shape
         self.content = K.constant(self.content_img, dtype='float32')
@@ -102,67 +143,49 @@ class Artist():
         self.style = K.constant(self.style_img, dtype='float32')
         self.x = K.placeholder(shape=(1,self.H,self.W,3), dtype='float32')
         
-        self.content_model = keras.applications.vgg19.VGG19(include_top=False, weights='imagenet', input_tensor=self.content)
-        self.style_model = keras.applications.vgg19.VGG19(include_top=False, weights='imagenet', input_tensor=self.style)
-        self.x_model = keras.applications.vgg19.VGG19(include_top=False, weights='imagenet', input_tensor=self.x)
-        #self.content_model = customvgg19(include_top=False, input_tensor=self.content, pooling='max')
-        #self.style_model = customvgg19(include_top=False, input_tensor=self.style, pooling='max')
-        #self.x_model = customvgg19(include_top=False,  input_tensor=self.x, pooling='max')
-        self.content_model=self.replace_maxpool_with_averagepool(self.content_model)
-        self.style_model=self.replace_maxpool_with_averagepool(self.style_model)
-        self.x_model=self.replace_maxpool_with_averagepool(self.x_model)
-        #self.input=np.copy(self.content_img)
+        #self.content_model = keras.applications.vgg19.VGG19(include_top=False, weights='imagenet')
+        #self.style_model = keras.applications.vgg19.VGG19(include_top=False, weights='imagenet')
+        #self.x_model = keras.applications.vgg19.VGG19(include_top=False, weights='imagenet')
+        self.content_model = customvgg19_notop(input_tensor=self.content)
+        self.style_model = customvgg19_notop(input_tensor=self.style)
+        self.x_model = customvgg19_notop(input_tensor=self.x)
+        
         self.input = np.random.uniform(0, 1 ,size=self.x.shape)
-        #result=self.gradient_descent(self.input, 30 )
-        #result = self.post_process(result)
-        #raise ValueError("STOPPED")
+        
         self.grad_fn = self.get_grad()
         self.loss=None
         self.grad=None
         
         self.loss_history=[]
         
-        """
-        result = self.gradient_descent(self.input, iterations=4000)
-        result = self.post_process(result)
-        
-        min1=np.abs(np.min(result))
-        max1=np.abs(np.max(result))
-        print(np.max(result))
-        print(np.min(result))
-        
-        
-        result=np.clip(result[0], 0, 255).astype('uint8')
-        
-        min1=np.abs(np.min(result))
-        max1=np.abs(np.max(result))
-        print(np.max(result))
-        print(np.min(result))
-        
-        plt.imshow(result)
-        """
-        result= self.bfgs(self.input, iterations=5)
+        print(self.iteration_count)
+        result= self.bfgs(self.input, self.iteration_count)
         result=np.reshape(result, (1, self.H, self.W, 3))
         result = self.post_process(result)
         
-        min1=np.abs(np.min(result))
-        max1=np.abs(np.max(result))
-        print(np.max(result))
-        print(np.min(result))
+        #min1=np.abs(np.min(result))
+        #max1=np.abs(np.max(result))
+        #print(np.max(result))
+        #print(np.min(result))
         
         
         #result=np.clip(255.*(result[0]+min1)/(min1+max1), 0, 255).astype('uint8')
         result = np.clip(result[0], 0, 255).astype('uint8')
-
         
         fig,ax=plt.subplots(2, figsize=[16,16])
         ax[0].plot(np.log(self.loss_history))
         ax[1].imshow(result)
-        
+        im = Image.from_array(result)
+        im.save(self.save_path)
         
         K.clear_session()
         
+        
+        
+        
     def replace_maxpool_with_averagepool(self, model):
+        """do not use. causes error"""
+        raise ValueError("Don't use this")
         maxpool_names=["block1_pool",
                        "block2_pool",
                        "block3_pool",
@@ -173,7 +196,7 @@ class Artist():
         count = 1 # count which block's pool we are currently at
         model_layers=[l for l in model.layers]
         x=model.input
-        model.summary()
+        #model.summary()
         # iterate over each layer, replacing max pool with average pool
         for e,layer in enumerate(model_layers):
             if e>0:
@@ -188,7 +211,7 @@ class Artist():
                     x = layer(x)
                 
         new_model = Model(input = model.input, output=x)
-        new_model.summary()
+        #new_model.summary()
         return new_model
     
     
@@ -219,10 +242,9 @@ class Artist():
         closs=K.variable(0.0)
         #assert len(self.P)==len(self.content_layer_names)
         for content_layer_name in self.content_layer_names:
-            print("DFSADFDS", self.content_model.get_layer(content_layer_name))
             P = self.content_model.get_layer(content_layer_name).output
-            Fc = self.x_model.get_layer(content_layer_name).output
-            closs = closs + contentLoss(Fc, P)
+            F = self.x_model.get_layer(content_layer_name).output
+            closs = closs + contentLoss(F, P)
         tloss = tloss + closs
             
         #style loss 
@@ -250,7 +272,7 @@ class Artist():
         self.grad =  loss_grad[1][0].flatten().astype("float64")
         self.loss = loss_grad[0]#.astype('float64')
         self.loss_history.append(self.loss)
-        print("loss value", self.loss)
+        #print("loss value:", self.loss)
         return self.loss
     
     
@@ -306,7 +328,7 @@ class Artist():
         total_loss=self.content_coeff*contentloss + self.style_coeff*total_style_loss
         """
         
-artist=Artist("images/vangogh2.jpg", "images/picasso.jpg")
+#artist=Artist("images/vangogh.jpg", "images/picasso.jpg")
 
                  
                  
