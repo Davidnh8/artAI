@@ -12,3 +12,7 @@ Triple Moon painting | Transformed to van gogh style (starry night)
 Original van gogh | Transformed to Picasso style
 ----------- | ------------
 ![scream](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
+
+Picture of Jellyfish | Transformed using Hokusai style
+----------- | ------------
+![Jelly fish](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish3.jpg) | ![Jellyfish Hokusai](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
