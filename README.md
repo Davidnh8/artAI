@@ -20,20 +20,20 @@ Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso
 &nbsp;
 
 ## Example 2
-Van gogh (Starry Night) |  | Triple Moon painting |  | Triple Moon in starry night style
+Van gogh (Starry Night) |  | Me (Triple Moon) |  | Triple Moon in starry night style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
 
 &nbsp;
 
 ## Example 3
-Picasso |  | Edvard Munch (Scream) |  | Transformed to Picasso style
+Picasso (The Family) |  | Edvard Munch (Scream) |  | Scream in Picasso style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/picasso425.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
 
 &nbsp;
 ## Example 4
-Hokusai | |  Picture of Jellyfish | | Transformed using Hokusai style
+Hokusai | |  Picture of Jellyfish | | Jellyfish in Hokusai style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/Hokusai375.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
 
