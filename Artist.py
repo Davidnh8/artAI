@@ -9,13 +9,10 @@ import numpy as np
 from PIL import Image
 from keras import backend as K
 from tqdm import tqdm
-import keras
-import tensorflow as tf
 
 from scipy.optimize import fmin_l_bfgs_b
 
 import sys
-sys.path.insert(1, 'C:\\Users\\David\\Desktop\\Art_style_transfer\\neural_stylization\\')
 #tf.compat.v1.disable_eager_execution()
 np.random.seed(1)
 from tensorflow import set_random_seed
@@ -23,7 +20,6 @@ set_random_seed(1)
 
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
-import time
 
 #from vgg19 import VGG_19 as customvgg19
 from keras.layers import AveragePooling2D, Conv2D, Input
@@ -175,7 +171,7 @@ class Artist():
         fig,ax=plt.subplots(2, figsize=[16,16])
         ax[0].plot(np.log(self.loss_history))
         ax[1].imshow(result)
-        im = Image.from_array(result)
+        im = Image.fromarray(result)
         im.save(self.save_path)
         
         K.clear_session()
