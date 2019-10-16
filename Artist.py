@@ -250,9 +250,8 @@ class Artist():
             F  = self.reshape_into_feature_matrix( self.x_model.get_layer(style_layer_name).output)
             sloss = sloss + w * styleLossSingleLayer(F, A_)
         tloss = tloss + self.style_coeff*sloss
-        
-        ret=K.function([self.x], [tloss, K.gradients(tloss, self.x)])
-        
+        gr=K.gradients(tloss, self.x)
+        ret = K.function([self.x],  [tloss, gr])
         
         return ret
     
