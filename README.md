@@ -13,13 +13,13 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 
 
-abcsdf | Original van gogh | Transformed to Picasso style 
------------ | ------------ | ------------ 
-![Original van gogh](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | ![Original van gogh](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
-
-Triple Moon painting | Transformed to van gogh style (starry night)
+Original van gogh | Transformed to Picasso style 
 ----------- | ------------
-![triple moon painting](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | ![transformed to van gogh](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
+![Original van gogh](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
+
+abcsdf | Triple Moon painting | Transformed to van gogh style (starry night)
+----------- | ------------ | ------------
+![Original van gogh](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | ![triple moon painting](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | ![transformed to van gogh](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
 
 Original scream | Transformed to Picasso style
 ----------- | ------------
