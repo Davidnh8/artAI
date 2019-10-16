@@ -13,7 +13,7 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 
 ## Example 1
-Picasso (The Family) |  | Van gogh (Vincent van Gogh) | __ | Van gogh with Picasso style
+Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | + |![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
@@ -38,3 +38,10 @@ Hokusai | |  Picture of Jellyfish | | Jellyfish in Hokusai style
 ![](https://github.com/Davidnh8/artAI/blob/master/images/Hokusai375.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
 
 &nbsp;
+
+th:empty {
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
