@@ -13,18 +13,17 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 
 
-Picasso | Van gogh | Van gogh with Picasso style
+Picasso (The Family) | Van gogh (Vincent van Gogh) | Van gogh with Picasso style
 ----------- | ------------ | ------------
-![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) 
-| ![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
+![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
-starry night | Triple Moon painting | Combined
+Van gogh (Starry Night) | Triple Moon painting | Triple Moon in starry night style
 ----------- | ------------ | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
 
-Original scream | Transformed to Picasso style
+Picasso | Edvard Munch (Scream) | Transformed to Picasso style
 ----------- | ------------
-![scream](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
+![scream](https://github.com/Davidnh8/artAI/blob/master/images/picasso425.jpg) | ![scream](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
 
 Picture of Jellyfish | Transformed using Hokusai style
 ----------- | ------------
