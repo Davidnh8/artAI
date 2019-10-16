@@ -17,13 +17,22 @@ Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | + |![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
+
+
+
 Van gogh (Starry Night) |  | Triple Moon painting |  | Triple Moon in starry night style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
 
+
+
+
 Picasso |  | Edvard Munch (Scream) |  | Transformed to Picasso style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/picasso425.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
+
+
+
 
 Picture of Jellyfish | Transformed using Hokusai style
 ----------- | -- |------------ | -- | ------------
