@@ -33,6 +33,6 @@ Picasso |  | Edvard Munch (Scream) |  | Transformed to Picasso style
 
 &nbsp;
 ## Example 4
-Picture of Jellyfish | Transformed using Hokusai style
+Hokusai| Picture of Jellyfish | Transformed using Hokusai style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/Hokusai375.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
