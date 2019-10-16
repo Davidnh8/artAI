@@ -22,9 +22,9 @@ Van gogh (Starry Night) | Triple Moon painting | Triple Moon in starry night sty
 ![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
 
 Picasso | Edvard Munch (Scream) | Transformed to Picasso style
------------ | ------------
-![scream](https://github.com/Davidnh8/artAI/blob/master/images/picasso425.jpg) | ![scream](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
+----------- | ------------ | ------------
+![](https://github.com/Davidnh8/artAI/blob/master/images/picasso425.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
 
 Picture of Jellyfish | Transformed using Hokusai style
------------ | ------------
-![Jelly fish](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | ![Jellyfish Hokusai](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
+----------- | ------------ | ------------
+![](https://github.com/Davidnh8/artAI/blob/master/images/Hokusai375.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
