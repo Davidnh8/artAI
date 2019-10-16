@@ -1,5 +1,13 @@
 # AI Art
 
+This repo implements the art style transfer algorithm from "A Neural Algorithm of Artistic Style" (https://arxiv.org/abs/1508.06576) by Leon A with few modifications. 
+
+Artist.py requires two base images, one for style and one for content. Then it extracts style and content respectively and merge the two to produce a hybrid image.
+
+
+
+
+
 
 Original van gogh | Transformed to Picasso style
 ----------- | ------------
