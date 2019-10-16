@@ -8,6 +8,8 @@ Note:
 1. At its core, it uses pre-trained VGG19 network. However, all local max pooling were replaced by local average pooling to achieve better image quality.
 2. Uses fmin_l_bfgs_b to minimize the loss function. Gradient descent works as well, but slower and in my opinion, it achieves lower quality result.
 
+Below are some exames of the implementation. Some images are my personal painting or a photograph taken by me.
+
 
 
 
