@@ -15,7 +15,8 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 Picasso | Van gogh | Van gogh with Picasso style
 ----------- | ------------ | ------------
-![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
+![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) 
+| ![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
 starry night | Triple Moon painting | Combined
 ----------- | ------------ | ------------
