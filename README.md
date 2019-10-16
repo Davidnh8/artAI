@@ -4,7 +4,9 @@ This repo implements the art style transfer algorithm from "A Neural Algorithm o
 
 Artist.py requires two base images, one for style and one for content. Then it extracts style and content respectively and merge the two to produce a hybrid image.
 
-
+Note:
+1. At its core, it uses pre-trained VGG19 network. However, all local max pooling were replaced by local average pooling to achieve better image quality.
+2. Uses fmin_l_bfgs_b to minimize the loss function. Gradient descent works as well, but slower and in my opinion, it achieves lower quality result.
 
 
 
