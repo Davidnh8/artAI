@@ -39,9 +39,3 @@ Hokusai | |  Picture of Jellyfish | | Jellyfish in Hokusai style
 
 &nbsp;
 
-th:empty {
-  font-size: 0px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
