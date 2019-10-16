@@ -15,7 +15,8 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 Original van gogh | Transformed to Picasso style | abc
 ----------- | ------------ | ------------
-![Orgiinal van gogh](https://github.com/Davidnh8/artAI/blob/master/images/picasso.jpg height="626") | ![Orgiinal van gogh](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
+a=https://github.com/Davidnh8/artAI/blob/master/images/picasso.jpg
+![Orgiinal van gogh](a) | ![Orgiinal van gogh](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
 Triple Moon painting | Transformed to van gogh style (starry night)
 ----------- | ------------
