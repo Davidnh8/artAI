@@ -15,4 +15,4 @@ Original van gogh | Transformed to Picasso style
 
 Picture of Jellyfish | Transformed using Hokusai style
 ----------- | ------------
-![Jelly fish](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish3.jpg) | ![Jellyfish Hokusai](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
+![Jelly fish](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | ![Jellyfish Hokusai](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
