@@ -13,7 +13,7 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 
 
-Original van gogh | Transformed to Picasso style
+Original van gogh | Transformed to Picasso style | ab
 ----------- | ------------ | ------------
 ![Orgiinal van gogh](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
