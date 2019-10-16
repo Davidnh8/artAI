@@ -6,25 +6,36 @@ Artist.py requires two base images, one for style and one for content. Then it e
 
 Note:
 1. At its core, it uses pre-trained VGG19 network. However, all local max pooling were replaced by local average pooling to achieve better image quality.
-2. Uses fmin_l_bfgs_b to minimize the loss function. Gradient descent works as well, but slower and in my opinion, it achieves lower quality result.
+2. Uses fmin_l_bfgs_b to minimize the loss function. Gradient descent works as well, but it is slower and in my opinion, it achieves lower quality results.
 
-Below are some exames of the implementation. Some images are my personal painting or a photograph taken by me.
-
-
+Below are some examples. Some images are my personal painting or a photograph taken by me.
 
 
-Original van gogh | Transformed to Picasso style 
------------ | ------------
-![Original van gogh](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
-starry night | Triple Moon painting | Combined
------------ | ------------ | ------------
-![Original van gogh](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | ![triple moon painting](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | ![transformed to van gogh](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
+## Example 1
+Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso style
+----------- | -- |------------ | -- | ------------
+![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | + |![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
-Original scream | Transformed to Picasso style
------------ | ------------
-![scream](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | ![Trnasformed to Picasso style](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
+&nbsp;
 
-Picture of Jellyfish | Transformed using Hokusai style
------------ | ------------
-![Jelly fish](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | ![Jellyfish Hokusai](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
+## Example 2
+Van gogh (Starry Night) |  | Me (Triple Moon) |  | Triple Moon in starry night style
+----------- | -- |------------ | -- | ------------
+![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/triple_moon-gogh-iter%3D30.jpg)
+
+&nbsp;
+
+## Example 3
+Picasso (The Family) |  | Edvard Munch (Scream) |  | Scream in Picasso style
+----------- | -- |------------ | -- | ------------
+![](https://github.com/Davidnh8/artAI/blob/master/images/picasso425.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/scream.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/scream-picasso-iter%3D30.jpg)
+
+&nbsp;
+## Example 4
+Hokusai | |  Picture of Jellyfish | | Jellyfish in Hokusai style
+----------- | -- |------------ | -- | ------------
+![](https://github.com/Davidnh8/artAI/blob/master/images/Hokusai375.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/jellyfish2.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/jellyfish2-Hokusai-iter%3D30.jpg)
+
+&nbsp;
+
