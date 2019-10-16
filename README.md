@@ -13,7 +13,7 @@ Below are some exames of the implementation. Some images are my personal paintin
 
 
 ## Example 1
-Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso style
+Picasso (The Family) |  | Van gogh (Vincent van Gogh) | __ | Van gogh with Picasso style
 ----------- | -- |------------ | -- | ------------
 ![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | + |![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
 
