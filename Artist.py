@@ -13,15 +13,14 @@ from tqdm import tqdm
 from scipy.optimize import fmin_l_bfgs_b
 
 import sys
-#tf.compat.v1.disable_eager_execution()
+
 np.random.seed(1)
-from tensorflow import set_random_seed
-set_random_seed(1)
+import tensorflow as tf
+tf.random.set_seed(1)
 
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
 
-#from vgg19 import VGG_19 as customvgg19
 from keras.layers import AveragePooling2D, Conv2D, Input
 from keras.models import Model
 
@@ -154,7 +153,7 @@ class Artist():
         
         self.loss_history=[]
         
-        print(self.iteration_count)
+        #print(self.iteration_count)
         result= self.bfgs(self.input, self.iteration_count)
         result=np.reshape(result, (1, self.H, self.W, 3))
         result = self.post_process(result)
@@ -272,8 +271,7 @@ class Artist():
     
     
     def grad_bfgs(self, x):
-    
-            
+       
         return self.grad
     
 
