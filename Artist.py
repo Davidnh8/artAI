@@ -109,6 +109,7 @@ class Artist():
                  style_img_path,
                  content_coeff=1.0,
                  style_coeff=8000.0,
+                 variation_coeff=1.0,
                  content_layer_names=['block4_conv2'],
                  style_layer_names=["block1_conv1",
                                     "block2_conv1",
@@ -117,21 +118,27 @@ class Artist():
                                     "block5_conv1"],
                 learning_rate=0.0000001,
                 iteration_count=30,
-                save_path=""
+                save_path="",
+                half_resolution=False
                  ):
         
         self.content_img_path=content_img_path
         self.style_img_path=style_img_path
         self.content_coeff = content_coeff
         self.style_coeff = style_coeff
+        self.variation_coeff = variation_coeff
         self.content_layer_names = content_layer_names
         self.style_layer_names = style_layer_names
         self.learning_rate = learning_rate
         self.iteration_count = iteration_count
         self.save_path = save_path
         
+        self.H, self.W, self.C=np.array(Image.open(self.content_img_path)).shape
+        if half_resolution:
+            self.W = int(self.W//2)
+            self.H = int(self.H//2)
         self.style_weights=[1/len(self.style_layer_names) for i in range(len(self.style_layer_names))]
-        self.content_img= self.pre_process(np.expand_dims(Image.open(self.content_img_path), axis=0).astype('float32'))
+        self.content_img= self.pre_process(np.expand_dims(Image.open(self.content_img_path).resize((self.W, self.H)), axis=0).astype('float32'))
         discard,self.H, self.W, self.C=self.content_img.shape
         self.content = K.constant(self.content_img, dtype='float32')
         self.style_img = self.pre_process(np.expand_dims(Image.open(self.style_img_path).resize((self.W,self.H)), axis=0).astype('float32'))
@@ -240,7 +247,6 @@ class Artist():
             P = self.content_model.get_layer(content_layer_name).output
             F = self.x_model.get_layer(content_layer_name).output
             closs = closs + contentLoss(F, P)
-        tloss = tloss + closs
             
         #style loss 
         sloss=K.variable(0.0)
@@ -248,9 +254,18 @@ class Artist():
             A_ = self.reshape_into_feature_matrix( self.style_model.get_layer(style_layer_name).output)
             F  = self.reshape_into_feature_matrix( self.x_model.get_layer(style_layer_name).output)
             sloss = sloss + w * styleLossSingleLayer(F, A_)
-        tloss = tloss + self.style_coeff*sloss
+
+        
+        # variation loss
+        vloss = K.variable(0.0)
+        i_ = K.square(self.x[:,1:,:-1,:]-self.x[:,:-1,:-1,:])
+        j_ = K.square(self.x[:,:-1,1:,:]-self.x[:,:-1,:-1,:])
+        vloss = vloss + K.sum(K.sqrt(i_ + j_ ) )
+        
+        tloss = self.content_coeff * closs + self.style_coeff * sloss + self.variation_coeff * vloss
         gr=K.gradients(tloss, self.x)
         ret = K.function([self.x],  [tloss, gr])
+        
         
         return ret
     
