@@ -119,7 +119,8 @@ class Artist():
                 learning_rate=0.0000001,
                 iteration_count=30,
                 save_path="",
-                half_resolution=False
+                half_resolution=False,
+                quarter_resolution=False
                  ):
         
         self.content_img_path=content_img_path
@@ -137,6 +138,9 @@ class Artist():
         if half_resolution:
             self.W = int(self.W//2)
             self.H = int(self.H//2)
+        if quarter_resolution:
+            self.W = int(self.W//4)
+            self.H = int(self.H//4)
         self.style_weights=[1/len(self.style_layer_names) for i in range(len(self.style_layer_names))]
         self.content_img= self.pre_process(np.expand_dims(Image.open(self.content_img_path).resize((self.W, self.H)), axis=0).astype('float32'))
         discard,self.H, self.W, self.C=self.content_img.shape
