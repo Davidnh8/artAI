@@ -15,7 +15,7 @@ Below are some examples. Some images are my personal painting or a photograph ta
 ## Example 1
 Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso style
 ----------- | -- |------------ | -- | ------------
-![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | + |![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/vangogh_picasso.jpg)
+![](https://github.com/Davidnh8/artAI/blob/master/images/picasso626.jpg) | + |![](https://github.com/Davidnh8/artAI/blob/master/images/vangogh.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/random_transfers/vangogh_picasso.jpg)
 
 &nbsp;
 
