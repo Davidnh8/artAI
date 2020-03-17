@@ -22,7 +22,7 @@ Picasso (The Family) |  | Van gogh (Vincent van Gogh) |  | Van gogh with Picasso
 ## Example 2
 Van gogh (Starry Night) |  | Me (Triple Moon) |  | Triple Moon in starry night style
 ----------- | -- |------------ | -- | ------------
-![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/random_transfers/triple_moon-gogh-iter%3D30.jpg)
+![](https://github.com/Davidnh8/artAI/blob/master/images/starry_night400x294.jpg) | + | ![](https://github.com/Davidnh8/artAI/blob/master/images/triple_moon.jpg) | = | ![](https://github.com/Davidnh8/artAI/blob/master/random_transfers/triple_moon-gogh-iter%3D30.jpg)
 
 &nbsp;
 
